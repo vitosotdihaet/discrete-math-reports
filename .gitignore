@@ -1,6 +1,5 @@
 *~
 
-.dvi
-.log
-.aux
-
+*.dvi
+*.log
+*.aux
