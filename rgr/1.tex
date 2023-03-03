@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\usepackage[T1]{fontenc}
+\usepackage[russian]{babel}
+
+\title{РГР по дискретной математики\\Первая задача}
+\author{Клименко В. М. -- М8О-103Б-22 -- 11 вариант}
+\date{Март, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section*{Дано}
+Оператор примитивной рекурсии, оператор суперпозиции, а также функции
+
+$$
+\begin{align}
+  &S(x) = x + 1\\
+  &O(x) = 0\\
+  &I^{n}_{m}(x_1, . . . x_n) = x_m$, где $1 \le m \le n\\
+  &\sigma(x_1, x_2) = x_1 + x_2
+\end{align}
+$$
+
+\section*{Задание}
+Получить функцию $f(x,y) = (2x+3)y$
+
+\section*{Решение}
+$$
+\begin{cases}
+    f(x, 0) = O(x)\\
+    f(x, y+1) = (2x+3)(y+1) = 2xy+2x+3y+3 = z+2x = \sigma(z,S(x,x)),
+\end{cases}
+$где $ z=2xy+3y+3
+$$
+
+\end{document}
