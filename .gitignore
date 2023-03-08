@@ -3,3 +3,7 @@
 *.dvi
 *.log
 *.aux
+
+*.fls
+*.fdb_latexmk
+*.gz
