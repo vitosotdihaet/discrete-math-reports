@@ -11,7 +11,7 @@
 
 \title{Курсовая работа по дискретной математике\\Вторая задача}
 \author{Клименко В. М. -- М8О-103Б-22 -- 11 вариант}
-\date{Март, 2023}
+\date{Март, 1523}
 
 \begin{document}
 
@@ -40,340 +40,34 @@
 (по одному в каждом направлении) через каждое ребро графа
 
 \section*{Решение}
-\subsection*{1.}
 \begin{center}
   \tikz {
-    \node [circle, draw, " "] (1) at (5,-3) {1};
-    \node [circle, draw, " "] (2) at (6,-1) {2};
-    \node [circle, draw, " "] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, " "] (5) at (0,-1) {5};
-    \node [circle, draw, " "] (6) at (1,-3) {6};
+    \node [circle, draw, label={180:{*}}] (1) at (5,-3) {1};
+    \node [circle, draw, label={170:{*}}] (2) at (6,-1) {2};
+    \node [circle, draw, label={0  :{*}}] (3) at (3,-2) {3};
+    \node [circle, draw, label={180:{*}}] (4) at (3, 0) {4};
+    \node [circle, draw, label={-5 :{*}}] (5) at (0,-1) {5};
+    \node [circle, draw, label={110:{*}}] (6) at (1,-3) {6};
     \graph {
       (5) -- {(3), (4)} -- (2);
       (5) -- (6) -- (1) -- (2);
     };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-  }
-\end{center}
+    \draw[-to] ($(5)!10mm! 15:(4)$) to ($(4)!10mm!-15:(5)$);
+    \draw[-to] ($(5)!10mm! 15:(4)$) to ($(4)!10mm!-15:(5)$);
+    \draw[-to] ($(4)!10mm! 15:(2)$) to ($(2)!10mm!-15:(4)$);
+    \draw[-to] ($(2)!10mm!-15:(3)$) to ($(3)!10mm! 15:(2)$);
+    \draw[-to] ($(3)!10mm!-15:(5)$) to ($(5)!10mm! 15:(3)$);
+    \draw[-to] ($(5)! 7mm! 15:(6)$) to ($(6)! 7mm!-15:(5)$);
+    \draw[-to] ($(6)!10mm! 15:(1)$) to ($(1)!10mm!-15:(6)$);
+    \draw[-to] ($(1)! 7mm! 15:(2)$) to ($(2)! 7mm!-15:(1)$);
 
-\subsection*{2.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, " "] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, " "] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, " "] (5) at (0,-1) {5};
-    \node [circle, draw, " "] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-  }
-\end{center}
-
-\subsection*{3.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, " "] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, " "] (5) at (0,-1) {5};
-    \node [circle, draw, " "] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-  }
-\end{center}
-
-\subsection*{4.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, " "] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, " "] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-  }
-\end{center}
-
-\subsection*{5.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, " "] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-  }
-\end{center}
-
-\subsection*{6.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-  }
-\end{center}
-
-\subsection*{7.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-  }
-\end{center}
-Теперь есть путь только в обратную сторону.
-
-\subsection*{8.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-
-    \draw[-to] ($(2)!5mm! 50:(1)$) to ($(1)!5mm!-50:(2)$);
-  }
-\end{center}
-
-\subsection*{8.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-
-    \draw[-to] ($(2)!5mm! 50:(1)$) to ($(1)!5mm!-50:(2)$);
-    \draw[-to] ($(1)!5mm! 50:(6)$) to ($(6)!5mm!-50:(1)$);
-  }
-\end{center}
-
-\subsection*{9.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-
-    \draw[-to] ($(2)!5mm! 50:(1)$) to ($(1)!5mm!-50:(2)$);
-    \draw[-to] ($(1)!5mm! 50:(6)$) to ($(6)!5mm!-50:(1)$);
-    \draw[-to] ($(6)!5mm! 50:(5)$) to ($(5)!5mm!-50:(6)$);
-  }
-\end{center}
-
-\subsection*{10.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-
-    \draw[-to] ($(2)!5mm! 50:(1)$) to ($(1)!5mm!-50:(2)$);
-    \draw[-to] ($(1)!5mm! 50:(6)$) to ($(6)!5mm!-50:(1)$);
-    \draw[-to] ($(6)!5mm! 50:(5)$) to ($(5)!5mm!-50:(6)$);
-    \draw[-to] ($(5)!5mm! -50:(3)$) to ($(3)!5mm!50:(5)$);
-  }
-\end{center}
-
-\subsection*{11.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-
-    \draw[-to] ($(2)!5mm! 50:(1)$) to ($(1)!5mm!-50:(2)$);
-    \draw[-to] ($(1)!5mm! 50:(6)$) to ($(6)!5mm!-50:(1)$);
-    \draw[-to] ($(6)!5mm! 50:(5)$) to ($(5)!5mm!-50:(6)$);
-    \draw[-to] ($(5)!5mm! -50:(3)$) to ($(3)!5mm!50:(5)$);
-    \draw[-to] ($(3)!5mm! -50:(2)$) to ($(2)!5mm!50:(3)$);
-  }
-\end{center}
-
-\subsection*{12.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-
-    \draw[-to] ($(2)!5mm! 50:(1)$) to ($(1)!5mm!-50:(2)$);
-    \draw[-to] ($(1)!5mm! 50:(6)$) to ($(6)!5mm!-50:(1)$);
-    \draw[-to] ($(6)!5mm! 50:(5)$) to ($(5)!5mm!-50:(6)$);
-    \draw[-to] ($(5)!5mm! -50:(3)$) to ($(3)!5mm!50:(5)$);
-    \draw[-to] ($(3)!5mm! -50:(2)$) to ($(2)!5mm!50:(3)$);
-    \draw[-to] ($(2)!5mm! 50:(4)$) to ($(4)!5mm!-50:(2)$);
-  }
-\end{center}
-
-\subsection*{13.}
-\begin{center}
-  \tikz {
-    \node [circle, draw, "*"] (1) at (5,-3) {1};
-    \node [circle, draw, "*"] (2) at (6,-1) {2};
-    \node [circle, draw, "*"] (3) at (3,-2) {3};
-    \node [circle, draw, "*"] (4) at (3, 0) {4};
-    \node [circle, draw, "*"] (5) at (0,-1) {5};
-    \node [circle, draw, "*"] (6) at (1,-3) {6};
-    \graph {
-      (5) -- {(3), (4)} -- (2);
-      (5) -- (6) -- (1) -- (2);
-    };
-    \draw[-to] ($(5)!5mm! 50:(4)$) to ($(4)!5mm!-50:(5)$);
-    \draw[-to] ($(4)!5mm! 50:(2)$) to ($(2)!5mm!-50:(4)$);
-    \draw[-to] ($(2)!5mm! -50:(3)$) to ($(3)!5mm!50:(2)$);
-    \draw[-to] ($(3)!5mm! -50:(5)$) to ($(5)!5mm!50:(3)$);
-    \draw[-to] ($(5)!5mm! 50:(6)$) to ($(6)!5mm!-50:(5)$);
-    \draw[-to] ($(6)!5mm! 50:(1)$) to ($(1)!5mm!-50:(6)$);
-    \draw[-to] ($(1)!5mm! 50:(2)$) to ($(2)!5mm!-50:(1)$);
-
-    \draw[-to] ($(2)!5mm! 50:(1)$) to ($(1)!5mm!-50:(2)$);
-    \draw[-to] ($(1)!5mm! 50:(6)$) to ($(6)!5mm!-50:(1)$);
-    \draw[-to] ($(6)!5mm! 50:(5)$) to ($(5)!5mm!-50:(6)$);
-    \draw[-to] ($(5)!5mm! -50:(3)$) to ($(3)!5mm!50:(5)$);
-    \draw[-to] ($(3)!5mm! -50:(2)$) to ($(2)!5mm!50:(3)$);
-    \draw[-to] ($(2)!5mm! 50:(4)$) to ($(4)!5mm!-50:(2)$);
-    \draw[-to] ($(4)!5mm! 50:(5)$) to ($(5)!5mm!-50:(4)$);
+    \draw[-to] ($(2)! 7mm! 15:(1)$) to ($(1)! 7mm!-15:(2)$);
+    \draw[-to] ($(1)!10mm! 15:(6)$) to ($(6)!10mm!-15:(1)$);
+    \draw[-to] ($(6)! 7mm! 15:(5)$) to ($(5)! 7mm!-15:(6)$);
+    \draw[-to] ($(5)!10mm!-15:(3)$) to ($(3)!10mm! 15:(5)$);
+    \draw[-to] ($(3)!10mm!-15:(2)$) to ($(2)!10mm! 15:(3)$);
+    \draw[-to] ($(2)!10mm! 15:(4)$) to ($(4)!10mm!-15:(2)$);
+    \draw[-to] ($(4)!10mm! 15:(5)$) to ($(5)!10mm!-15:(4)$);
   }
 \end{center}
 
