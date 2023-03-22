@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{amsmath}
+\usepackage{ragged2e}
 \usepackage[russian]{babel}
 \usepackage[margin=2.5cm]{geometry}
 
@@ -12,77 +13,75 @@
 \date{Март, 2023}
 
 
+\RaggedRight
+
 \begin{document}
-
 \maketitle
-
 
 \section*{Дано}
 Матрица смежности $A$ орграфа:
 $$
 \begin{pmatrix}
-    0 && 0 && 0 && 1 && 0 && 1 && 0 \\
-    1 && 0 && 1 && 0 && 1 && 0 && 1 \\
-    0 && 1 && 0 && 1 && 1 && 1 && 0 \\
-    1 && 0 && 0 && 0 && 1 && 0 && 0 \\
-    1 && 0 && 1 && 1 && 0 && 1 && 0 \\
-    0 && 0 && 0 && 1 && 1 && 0 && 0 \\
-    1 && 0 && 1 && 0 && 1 && 1 && 0 \\
+  % 1    2    3    4    5    6    7
+    0 && 0 && 0 && 1 && 0 && 1 && 0 \\ % 1
+    1 && 0 && 1 && 0 && 1 && 0 && 1 \\ % 2
+    0 && 1 && 0 && 1 && 1 && 1 && 0 \\ % 3
+    1 && 0 && 0 && 0 && 1 && 0 && 0 \\ % 4
+    1 && 0 && 1 && 1 && 0 && 1 && 0 \\ % 5
+    0 && 0 && 0 && 1 && 1 && 0 && 0 \\ % 6
+    1 && 0 && 1 && 0 && 1 && 1 && 0 \\ % 7
 \end{pmatrix}
 $$
 
 
 \section*{Задание}
-Используя алгоритм “фронта волны”, найти все минимальные
+Используя алгоритм ''фронта волны'', найти все минимальные
 пути из первой вершины в последнюю орграфа, заданного матрицей
 смежности $A$
 
 
 \section*{Решение}
-Первую вершину пометим индексом нуль
-\\
 Находим фронты волны:
 
-\begin{align}
-    FW_1(x_1) &= \Gamma_{x_1} = \{x_4, x_6\} \\
-    FW_2(x_1) &= \Gamma_{x_4, x_6} = \{x_1, x_5, x_4\} \\
-    FW_3(x_1) &= \Gamma_{x_5} = \{x_1, x_3, x_4, x_6\} \\
-    FW_4(x_1) &= \Gamma_{x_3} = \{x_2, x_4, x_5, x_6\} \\
-    FW_5(x_1) &= \Gamma_{x_2} = \{x_1, x_3, x_5, x_7\}
-\end{align}
+\begin{align*}
+    w_0(x_1) &= \{x_1\} \\
+    w_1(x_1) &= \Gamma_{x_1} = \{x_4, x_6\} \\
+    w_2(x_1) &= \Gamma_{x_4, x_6} = \{x_1, x_5, x_4\} \\
+    w_3(x_1) &= \Gamma_{x_5} = \{x_1, x_3, x_4, x_6\} \\
+    w_4(x_1) &= \Gamma_{x_3} = \{x_2, x_4, x_5, x_6\} \\
+    w_5(x_1) &= \Gamma_{x_2} = \{x_1, x_3, x_5, x_7\}
+\end{align*}
 
-Нашли $x_7$, следовательно путь (именно четыре вершины, через которые нужно пройти,
-так как всего найденных фронтов волны - пять) из $x_1$ в $x_7$ равен:
+Нашли $x_7$ на шестом шаге, следовательно путь состоит из шести вершин из $x_1$ в $x_7$ равен:
 $$
-x_1z_1z_2z_3z_4x_7,
+x_1 \rightarrow z_1 \rightarrow z_2 \rightarrow z_3 \rightarrow z_4 \rightarrow x_7,
 $$
 где
 
-$$
-\begin{aligned}
-    z_4 \in FW_4(x_1) \cap \Gamma^{-1}_{x_7} &= \{x_2\} \Rightarrow z_5 = x_2 \\
-    z_3 \in FW_3(x_1) \cap \Gamma^{-1}_{z_4} &= \{x_3\} \Rightarrow z_4 = x_3 \\
-    z_2 \in FW_2(x_1) \cap \Gamma^{-1}_{z_3} &= \{x_5\} \Rightarrow z_3 = x_5 \\
-    z_1 \in FW_1(x_1) \cap \Gamma^{-1}_{z_2} &= \{x_4, x_6\} \Rightarrow
-    z_1 \in \{x_4, x_6\} \\
-\end{aligned}
-$$
+\begin{align*}
+    \text{1.   } z_4 \in w_4(x_1) \cap \Gamma^{-1}_{x_7} &= \{x_2\} \Rightarrow z_5 = x_2 \\
+    \text{2.   } z_3 \in w_3(x_1) \cap \Gamma^{-1}_{x_2} &= \{x_3\} \Rightarrow z_4 = x_3 \\
+    \text{3.   } z_2 \in w_2(x_1) \cap \Gamma^{-1}_{x_3} &= \{x_5\} \Rightarrow z_3 = x_5 \\
+    \text{4.   } z_1 \in w_1(x_1) \cap \Gamma^{-1}_{x_5} &= \{x_4, x_6\} \Rightarrow
+z_1 \in \{x_4, x_6\} \\
+    \text{5.1. } x_1 \in w_0(x_1) \cap \Gamma^{-1}_{x_4} &= \{x_1\} \\
+    \text{5.2. } x_1 \in w_0(x_1) \cap \Gamma^{-1}_{x_6} &= \{x_1\} \\
+\end{align*}
 
 Из этого следует, что всего найдено два минимальных пути из $x_1$ в $x_7$:
-$$
-\begin{aligned}
-    x_1x_4x_5x_3x_2x_7 \\
-    x_1x_6x_5x_3x_2x_7
-\end{aligned}
-$$
+\begin{align*}
+    x_1 \rightarrow x_4 \rightarrow x_5 \rightarrow x_3 \rightarrow x_2 \rightarrow x_7 \\
+    x_1 \rightarrow x_6 \rightarrow x_5 \rightarrow x_3 \rightarrow x_2 \rightarrow x_7
+\end{align*}
+
 
 \section*{Ответ}
-$$
-\begin{aligned}
-    x_1x_4x_5x_3x_2x_7 \\
-    x_1x_6x_5x_3x_2x_7
-\end{aligned}
-$$
+Найдено два кратчайших пути:
+\begin{align*}
+    x_1 \rightarrow x_4 \rightarrow x_5 \rightarrow x_3 \rightarrow x_2 \rightarrow x_7 \\
+    x_1 \rightarrow x_6 \rightarrow x_5 \rightarrow x_3 \rightarrow x_2 \rightarrow x_7
+\end{align*}
+
 
 
 \end{document}
