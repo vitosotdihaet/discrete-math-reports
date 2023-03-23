@@ -59,13 +59,19 @@ $$
 где
 
 \begin{align*}
-    \text{1.   } z_4 \in w_4(x_1) \cap \Gamma^{-1}_{x_7} &= \{x_2\} \Rightarrow z_5 = x_2 \\
-    \text{2.   } z_3 \in w_3(x_1) \cap \Gamma^{-1}_{x_2} &= \{x_3\} \Rightarrow z_4 = x_3 \\
-    \text{3.   } z_2 \in w_2(x_1) \cap \Gamma^{-1}_{x_3} &= \{x_5\} \Rightarrow z_3 = x_5 \\
-    \text{4.   } z_1 \in w_1(x_1) \cap \Gamma^{-1}_{x_5} &= \{x_4, x_6\} \Rightarrow
+    \text{1.   } z_4 \in w_4(x_1) \cap \Gamma^{-1}_{x_7} &=
+\{x_2, x_4, x_5, x_6\} \cap \{x_2\} = \{x_2\} \Rightarrow z_5 = x_2 \\
+    \text{2.   } z_3 \in w_3(x_1) \cap \Gamma^{-1}_{x_2} &=
+\{x_1, x_3, x_4, x_6\} \cap \{x_3\} = \{x_3\} \Rightarrow z_4 = x_3 \\
+    \text{3.   } z_2 \in w_2(x_1) \cap \Gamma^{-1}_{x_3} &=
+\{x_1, x_5, x_4\} \cap \{x_2, x_5, x_7\} = \{x_5\} \Rightarrow z_3 = x_5 \\
+    \text{4.   } z_1 \in w_1(x_1) \cap \Gamma^{-1}_{x_5} &=
+\{x_4, x_6\} \cap \{x_2, x_3, x_4, x_6\} = \{x_4, x_6\} \Rightarrow
 z_1 \in \{x_4, x_6\} \\
-    \text{5.1. } x_1 \in w_0(x_1) \cap \Gamma^{-1}_{x_4} &= \{x_1\} \\
-    \text{5.2. } x_1 \in w_0(x_1) \cap \Gamma^{-1}_{x_6} &= \{x_1\} \\
+    \text{5.1. } x_1 \in w_0(x_1) \cap \Gamma^{-1}_{x_4} &=
+\{x_1\} \cap \{x_1, x_3, x_5, x_6\} = \{x_1\} \\
+    \text{5.2. } x_1 \in w_0(x_1) \cap \Gamma^{-1}_{x_6} &=
+\{x_1\} \cap \{x_1, x_3, x_5, x_7\} = \{x_1\} \\
 \end{align*}
 
 Из этого следует, что всего найдено два минимальных пути из $x_1$ в $x_7$:
