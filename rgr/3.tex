@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+
+
+\title{Курсовая работа по дискретной математике\\Третья задача}
+\author{Клименко В. М. -- М8О-103Б-22 -- 11 вариант}
+\date{Март, 2023}
+
+\begin{document}
+\maketitle
+
+
+\section*{Дано}
+$H = <(12), (34)>$
+
+
+\section*{Задание}
+Определить для заданной подгруппы $H \subset S_4$:
+\begin{enumerate}
+    \item элементы из $H$
+    \item левые смежные классы группы $S_4$ по $H$
+    \item правые смежные классы группы $S_4$ по $H$
+    \item является ли $H$ нормальной подгруппой
+\end{enumerate}
+
+
+\section*{Решение}
+\subsection*{Пункт 1}
+$H = \{\pi_0, (12),(34)\}$
+
+\subsection*{Пункт 2}
+\begin{enumerate}
+    \item $\pi_0 \cdot H = \{\pi_0, (12), (34)\}$
+    \item $(13) \cdot H = \{(13), (123), (341)\}$
+    \item $(23) \cdot H = \{(23), (13), (342)\}$
+\end{enumerate}
+
+\subsection*{Пункт 3}
+\begin{enumerate}
+    \item $H \cdot \pi_0 = \{\pi_0, (12), (34)\}$
+    \item $H \cdot (13) = \{(13), (132), (14)\}$
+    \item $H \cdot (23) = \{(23), (231), (24)\}$
+\end{enumerate}
+
+\subsection*{Пункт 4}
+$H$ не является нормальной подгруппой, так как ЛСК $\ne$ ПСК
+
+
+\end{document}
