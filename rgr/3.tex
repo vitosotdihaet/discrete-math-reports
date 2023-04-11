@@ -3,6 +3,10 @@
 \usepackage{amsmath}
 \usepackage[russian]{babel}
 \usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+
+\newcommand\headercell[1]{%
+   \smash[b]{\begin{tabular}[t]{@{}c@{}} #1 \end{tabular}}}
 
 
 \title{Курсовая работа по дискретной математике\\Третья задача}
@@ -29,22 +33,31 @@ $H = <(12), (34)>$
 
 \section*{Решение}
 \subsection*{Пункт 1}
-$H = \{\pi_0, (12),(34)\}$
+\begin{tabular}{l|lllll}
+    $\cdot$      & $pi_0$     & $(12)$     & $(34)$     & $(12)(34)$ \\ 
+    \midrule
+      $pi_0$     & $pi_0$     & $(12)$     & $(34)$     & $(12)(34)$ \\
+      $(12)$     & $(12)$     & $pi_0$     & $(12)(34)$ & $(34)$     \\
+      $(34)$     & $(34)$     & $(34)(12)$ & $pi_0$     & $(12)$     \\
+      $(12)(34)$ & $(12)(34)$ & $(34)$     & $(12)$     & $pi_0$     \\
+\end{tabular}
+\\\\
+$H = \{\pi_0, (12),(34), (12)(34), (34)(12)\}$
 
 \subsection*{Пункт 2}
 \begin{enumerate}
-    \item $\pi_0 \cdot H = \{\pi_0, (12) , (34) \}$
-    \item $(13)  \cdot H = \{(13) , (123), (341)\}$
-    \item $(14)  \cdot H = \{(14) , (124), (314)\}$
-    \item $(23)  \cdot H = \{(23) , (132), (342)\}$
+    \item $\pi_0 \cdot H = \{\pi_0, (12) , (34) , (12)(34)\}$
+    \item $(13)  \cdot H = \{(13) , (123), (341), (3412)  \}$
+    \item $(14)  \cdot H = \{(14) , (124), (314), (3124)  \}$
+    \item $(23)  \cdot H = \{(23) , (132), (342), (3421)  \}$
 \end{enumerate}
 
 \subsection*{Пункт 3}
 \begin{enumerate}
-    \item $H \cdot \pi_0 = \{\pi_0, (12) , (34) \}$
-    \item $H \cdot (13)  = \{(13) , (132), (143)\}$
-    \item $H \cdot (14)  = \{(14) , (142), (134)\}$
-    \item $H \cdot (23)  = \{(23) , (231), (243)\}$
+    \item $H \cdot \pi_0 = \{\pi_0, (12) , (34) , (12)(34)\}$
+    \item $H \cdot (13)  = \{(13) , (132), (143), (1432)  \}$
+    \item $H \cdot (14)  = \{(14) , (142), (134), (1342)  \}$
+    \item $H \cdot (23)  = \{(23) , (231), (243), (2431)  \}$
 \end{enumerate}
 
 \subsection*{Пункт 4}
