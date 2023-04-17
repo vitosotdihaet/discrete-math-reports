@@ -5,6 +5,10 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{booktabs}
 
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+\newcommand\tm[1]{\tikzmark{#1}}
 \newcommand\ld[2]{$\lambda^{(#1)}_{#2}$}
 
 \setcounter{MaxMatrixCols}{20}
@@ -44,23 +48,28 @@ $$
              & $V1$     & $V2$     & $V3$     & $V4$     & $V5$     & $V6$     & $V7$     & $V8$     
     & \ld{0}{i}& \ld{1}{i}& \ld{2}{i}& \ld{3}{i}& \ld{4}{i}& \ld{5}{i}& \ld{6}{i}& \ld{7}{i}\\
     \midrule
-    $V1$     & $\infty$ & $2$      & $\infty$ & $5$      & $\infty$ & $6$      & $\infty$ & $\infty$
-             & $0$      & $0$      & $0$      & $0$      & $0$      & $0$      & $0$      & $0$      \\
-    $V2$     & $6$      & $\infty$ & $12$     & $3$      & $\infty$ & $\infty$ & $\infty$ & $\infty$
-             & $\infty$ & $2$      & \\
-    $V3$     & $7$      & $\infty$ & $\infty$ & $\infty$ & $1$      & $\infty$ & $\infty$ & $1$      
+    $V1$     & $\infty$ & 2        & $\infty$ & 5        & $\infty$ & 6        & $\infty$ & $\infty$
+             & 0\tm{a}  & 0        & 0        & 0        & 0        & 0        & 0        & 0        \\
+    $V2$     & 6        & $\infty$ & 12       & 3        & $\infty$ & $\infty$ & $\infty$ & $\infty$
+             & $\infty$ & 2\tm{b}  & \\
+    $V3$     & 7        & $\infty$ & $\infty$ & $\infty$ & 1        & $\infty$ & $\infty$ & 1        
              & $\infty$ & $\infty$ & \\
-    $V4$     & $5$      & $3$      & $\infty$ & $\infty$ & $6$      & $2$      & $\infty$ & $\infty$ 
-             & $\infty$ & $5$      & \\
-    $V5$     & $\infty$ & $\infty$ & $1$      & $\infty$ & $\infty$ & $\infty$ & $3$      & $4$      
+    $V4$     & 5        & 3        & $\infty$ & $\infty$ & 6        & 2        & $\infty$ & $\infty$ 
+             & $\infty$ & 5\tm{c}  & \\
+    $V5$     & $\infty$ & $\infty$ & 1        & $\infty$ & $\infty$ & $\infty$ & 3        & 4        
              & $\infty$ & $\infty$ & \\
-    $V6$     & $3$      & $\infty$ & $\infty$ & $2$      & $\infty$ & $\infty$ & $2$      & $\infty$ 
-             & $\infty$ & $6$      & \\
-    $V7$     & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $3$      & $\infty$ & $\infty$ & $6$      
+    $V6$     & 3        & $\infty$ & $\infty$ & 2        & $\infty$ & $\infty$ & 2        & $\infty$ 
+             & $\infty$ & 6        & \\
+    $V7$     & $\infty$ & $\infty$ & $\infty$ & $\infty$ & 3        & $\infty$ & $\infty$ & 6        
              & $\infty$ & $\infty$ & \\
-    $V8$     & $8$      & $\infty$ & $\infty$ & $\infty$ & $13$     & $\infty$ & $\infty$ & $\infty$ 
+    $V8$     & 8        & $\infty$ & $\infty$ & $\infty$ & 13       & $\infty$ & $\infty$ & $\infty$ 
              & $\infty$ & $\infty$ & \\
 \end{tabular}
+
+\begin{tikzpicture}[overlay, remember picture, shorten >=.5pt, shorten <=.5pt, transform canvas={yshift=.25\baselineskip}]
+    \draw[->] ([xshift=8pt]pic cs:a) -- ([xshift=-8pt]pic cs:b);
+    \draw[->] ([xshift=8pt]pic cs:a) -- ([xshift=-8pt]pic cs:c);
+\end{tikzpicture}
 
 
 
