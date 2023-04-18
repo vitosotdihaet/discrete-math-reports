@@ -43,7 +43,6 @@ $$
 
 
 \section*{Решение}
-\subsubsection*{Пункт 1}
 \begin{tabular}{l|llllllll|llllllll}
              & $V1$     & $V2$     & $V3$     & $V4$     & $V5$     & $V6$     & $V7$     & $V8$     
     & \ld{0}{i}& \ld{1}{i}& \ld{2}{i}& \ld{3}{i}& \ld{4}{i}& \ld{5}{i}& \ld{6}{i}& \ld{7}{i}\\
@@ -51,29 +50,72 @@ $$
     $V1$     & $\infty$ & 2        & $\infty$ & 5        & $\infty$ & 6        & $\infty$ & $\infty$
              & 0\tm{a}  & 0        & 0        & 0        & 0        & 0        & 0        & 0        \\
     $V2$     & 6        & $\infty$ & 12       & 3        & $\infty$ & $\infty$ & $\infty$ & $\infty$
-             & $\infty$ & 2\tm{b}  & \\
+             & $\infty$ & 2\tm{b}  & 2        & 2        & 2        & 2        & 2        & 2        \\
     $V3$     & 7        & $\infty$ & $\infty$ & $\infty$ & 1        & $\infty$ & $\infty$ & 1        
-             & $\infty$ & $\infty$ & \\
+             & $\infty$ & $\infty$ & 14       & 12\tm{g} & 12       & 12       & 12       & 12       \\
     $V4$     & 5        & 3        & $\infty$ & $\infty$ & 6        & 2        & $\infty$ & $\infty$ 
-             & $\infty$ & 5\tm{c}  & \\
+             & $\infty$ & 5\tm{c}  & 5        & 5        & 5        & 5        & 5        & 5        \\
     $V5$     & $\infty$ & $\infty$ & 1        & $\infty$ & $\infty$ & $\infty$ & 3        & 4        
-             & $\infty$ & $\infty$ & \\
+             & $\infty$ & $\infty$ & 11\tm{f} & 11       & 11       & 11       & 11       & 11       \\
     $V6$     & 3        & $\infty$ & $\infty$ & 2        & $\infty$ & $\infty$ & 2        & $\infty$ 
-             & $\infty$ & 6        & \\
+             & $\infty$ & 6\tm{d}  & 6        & 6        & 6        & 6        & 6        & 6        \\
     $V7$     & $\infty$ & $\infty$ & $\infty$ & $\infty$ & 3        & $\infty$ & $\infty$ & 6        
-             & $\infty$ & $\infty$ & \\
+             & $\infty$ & $\infty$ & 8\tm{e}  & 8        & 8        & 8        & 8        & 8        \\
     $V8$     & 8        & $\infty$ & $\infty$ & $\infty$ & 13       & $\infty$ & $\infty$ & $\infty$ 
-             & $\infty$ & $\infty$ & \\
+             & $\infty$ & $\infty$ & $\infty$ & 14\tm{h} & 14       & 14       & 14       & 14       \\
 \end{tabular}
 
-\begin{tikzpicture}[overlay, remember picture, shorten >=.5pt, shorten <=.5pt, transform canvas={yshift=.25\baselineskip}]
+\begin{tikzpicture}[overlay, remember picture, transform canvas={yshift=.25\baselineskip}]
     \draw[->] ([xshift=8pt]pic cs:a) -- ([xshift=-8pt]pic cs:b);
     \draw[->] ([xshift=8pt]pic cs:a) -- ([xshift=-8pt]pic cs:c);
+    \draw[->] ([xshift=8pt]pic cs:d) -- ([xshift=-8pt]pic cs:e);
+    \draw[->] ([xshift=8pt]pic cs:c) -- ([xshift=-13pt]pic cs:f);
+    \draw[->] ([xshift=3pt]pic cs:f) -- ([xshift=-13pt]pic cs:g);
+    \draw[->] ([xshift=3pt]pic cs:e) -- ([xshift=-13pt]pic cs:h);
 \end{tikzpicture}
+\\
+\begin{enumerate}
+    \item Из $v_1$ в $v_2$ - $v_1 - v_2$, длина равна 2
+    \begin{enumerate}
+        \item \ld{0}{1}$+ c_{12} = 0 + 2 =$\ld{1}{2}
+    \end{enumerate}
+    
+    \item Из $v_1$ в $v_3$ - $v_1 - v_4 - v_5 - v_3$, длина равна 12
+    \begin{enumerate}
+        \item \ld{0}{1}$+ c_{14} = 0 + 5 =$\ld{1}{4}
+        \item \ld{1}{4}$+ c_{45} = 5 + 6 =$\ld{2}{5}
+        \item \ld{2}{5}$+ c_{53} = 11 + 1 =$\ld{3}{3}
+    \end{enumerate}
+    
+    \item Из $v_1$ в $v_4$ - $v_1 - v_4$, длина равна 5
+    \begin{enumerate}
+        \item \ld{0}{1}$+ c_{14} = 0 + 5 =$\ld{1}{4}
+    \end{enumerate}
 
+    \item Из $v_1$ в $v_5$ - $v_1 - v_4 - v_5$, длина равна 11
+    \begin{enumerate}
+        \item \ld{0}{1}$+ c_{14} = 0 + 5 =$\ld{1}{4}
+        \item \ld{1}{4}$+ c_{45} = 5 + 6 =$\ld{2}{5}
+    \end{enumerate}
 
+    \item Из $v_1$ в $v_6$ - $v_1 - v_6$, длина равна 6
+    \begin{enumerate}
+        \item \ld{0}{1}$+ c_{16} = 0 + 6 =$\ld{1}{6}
+    \end{enumerate}
 
-\section*{Ответ}
+    \item Из $v_1$ в $v_7$ - $v_1 - v_6 - v_7$, длина равна 8
+    \begin{enumerate}
+        \item \ld{0}{1}$+ c_{16} = 0 + 6 =$\ld{1}{6}
+        \item \ld{1}{6}$+ c_{67} = 6 + 2 =$\ld{2}{7}
+    \end{enumerate}
+
+    \item Из $v_1$ в $v_8$ - $v_1 - v_6 - v_7 - v_8$, длина равна 14
+    \begin{enumerate}
+        \item \ld{0}{1}$+ c_{16} = 0 + 6 =$\ld{1}{6}
+        \item \ld{1}{6}$+ c_{67} = 6 + 2 =$\ld{2}{7}
+        \item \ld{2}{7}$+ c_{78} = 8 + 6 =$\ld{3}{8}
+    \end{enumerate}
+\end{enumerate}
 
 
 \end{document}
