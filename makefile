@@ -7,3 +7,10 @@ all:
 		pdflatex -interaction=nonstopmode $$file -output-directory=$$dir; \
 		rm -f $$name.aux $$name.log $$name.fdb_latexmk $$name.fls $$name.synctex.gz; \
 	done
+
+clean:
+	for file in $(SRC); do \
+		name=$${file::-4}; \
+		dir=$${file%/*}; \
+		rm -f $$name.aux $$name.log $$name.fdb_latexmk $$name.fls $$name.synctex.gz; \
+	done
