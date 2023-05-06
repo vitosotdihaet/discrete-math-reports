@@ -1,0 +1,268 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+
+\usepackage{tikz}
+\usetikzlibrary{graphs, babel, quotes, calc, arrows.meta}
+
+\setcounter{MaxMatrixCols}{20}
+
+\title{Курсовая работа по дискретной математике\\Шестая задача}
+\author{Клименко В. М. -- М8О-103Б-22 -- 11 вариант}
+\date{Май, 2023}
+
+\begin{document}
+\maketitle
+
+\section*{Дано}
+\begin{center}
+    \begin{tikzpicture}[circ/.style={circle, draw}]
+        \path[nodes={circ}]
+            (0, 2) node(1) {$v_1$}
+            (1, 4) node(2) {$v_2$}
+            (1, 0) node(3) {$v_3$}
+            (4, 4) node(4) {$v_4$}
+            (4, 0) node(5) {$v_5$}
+            (5, 2) node(6) {$v_6$}
+        ;
+        \draw[nodes={circle, fill=white}, thick]
+            (1) -- node{1} (2)
+            (1) -- node{3} (3)
+            (2) -- node{7} (3)
+            (2) -- node{2} (4)
+            (2) -- node[left=11pt, above=10pt]{8} (5)
+            (3) -- node[left=11pt, below=10pt]{9} (4)
+            (3) -- node{4} (5)
+            (4) -- node{6} (6)
+            (5) -- node{5} (6)
+        ;
+    \end{tikzpicture}
+\end{center}
+
+
+\section*{Задание}
+Пусть каждому ребру неориентированного графа соответствует некоторый элемент 
+электрической цепи. Составить линейно независимые системы уравнений Кирхгофа для
+токов и напряжений. Пусть первому и пятому ребру соответствуют источники тока с ЭДС 
+E1 и E2 (полярность выбирается произвольно), а остальные элементы являются сопротивлениями.
+Используя закон Ома, и, предполагая внутренние сопротивления источников тока
+равными нулю, получить систему уравнений для токов
+
+
+\section*{Решение}
+Находим остовное дерево $D =$
+\begin{center}
+    \begin{tikzpicture}[circ/.style={circle, draw}]
+        \path[nodes={circ}]
+            (0, 2) node(1) {$v_1$}
+            (1, 4) node(2) {$v_2$}
+            (1, 0) node(3) {$v_3$}
+            (4, 4) node(4) {$v_4$}
+            (4, 0) node(5) {$v_5$}
+            (5, 2) node(6) {$v_6$}
+        ;
+        \draw[nodes={circle, fill=white}, thick]
+            (1) -- node{1} (2)
+            (1) -- node{3} (3)
+            (2) -- node{2} (4)
+            (3) -- node{4} (5)
+            (5) -- node{5} (6)
+        ;
+    \end{tikzpicture}
+\end{center}
+
+Пусть ребру под номером $i$ будет соответствовать букве $q_i$, где $i \in 1..9$, тогда:
+\begin{enumerate}
+    \item $(D + q_6) = \mu_1 = v_1-v_2-v_4-v_6-v_5-v_3-v_1$
+    \item $(D + q_7) = \mu_2 = v_1-v_2-v_3-v_1$
+    \item $(D + q_8) = \mu_3 = v_1-v_2-v_5-v_3-v_1$
+    \item $(D + q_9) = \mu_4 = v_1-v_2-v_4-v_3-v_1$
+\end{enumerate}
+
+Зададим произвольную ориентацию на графе:
+\begin{center}
+    \begin{tikzpicture}[circ/.style={circle, draw}]
+        \path[nodes={circ}]
+            (0, 2) node(1) {$v_1$}
+            (1, 4) node(2) {$v_2$}
+            (1, 0) node(3) {$v_3$}
+            (4, 4) node(4) {$v_4$}
+            (4, 0) node(5) {$v_5$}
+            (5, 2) node(6) {$v_6$}
+        ;
+        \draw[-{Stealth[length=7pt]}] (1) -- (2);
+        \draw[-{Stealth[length=7pt]}] (1) -- (3);
+        \draw[-{Stealth[length=7pt]}] (2) -- (3);
+        \draw[-{Stealth[length=7pt]}] (2) -- (4);
+        \draw[-{Stealth[length=7pt]}] (2) -- (5);
+        \draw[-{Stealth[length=7pt]}] (3) -- (4);
+        \draw[-{Stealth[length=7pt]}] (3) -- (5);
+        \draw[-{Stealth[length=7pt]}] (4) -- (6);
+        \draw[-{Stealth[length=7pt]}] (5) -- (6);
+        \draw[nodes={circle, fill=white}]
+            (1) -- node{1} (2)
+            (1) -- node{3} (3)
+            (2) -- node{7} (3)
+            (2) -- node{2} (4)
+            (2) -- node[left=11pt, above=10pt]{8} (5)
+            (3) -- node[left=11pt, below=10pt]{9} (4)
+            (3) -- node{4} (5)
+            (4) -- node{6} (6)
+            (5) -- node{5} (6)
+        ;
+    \end{tikzpicture}
+\end{center}
+
+Получаем цикломатическую матрицу
+$$
+C =
+\begin{pmatrix}
+    1 && 1 && -1 && -1 && -1 && 1 && 0 && 0 &&  0 \\
+    1 && 0 && -1 &&  0 &&  0 && 0 && 1 && 0 &&  0 \\
+    1 && 0 && -1 && -1 &&  0 && 0 && 0 && 1 &&  0 \\
+    1 && 1 && -1 &&  0 &&  0 && 0 && 0 && 0 && -1
+\end{pmatrix}
+$$
+
+По закону Кирхгофа для напряжения:
+\begin{align*}
+    C \times U = 0 = 
+    \begin{pmatrix}
+        1 && 1 && -1 && -1 && -1 && 1 && 0 && 0 &&  0 \\
+        1 && 0 && -1 &&  0 &&  0 && 0 && 1 && 0 &&  0 \\
+        1 && 0 && -1 && -1 &&  0 && 0 && 0 && 1 &&  0 \\
+        1 && 1 && -1 &&  0 &&  0 && 0 && 0 && 0 && -1
+    \end{pmatrix}
+    \times
+    \begin{pmatrix}
+        u_1 \\ \dots \\ u_9
+    \end{pmatrix}
+    \Longrightarrow \\
+    \Longrightarrow
+    \begin{cases}
+        u_1 + u_2 - u_3 - u_4 - u_5 + u_6 = 0 \\
+        u_1 - u_3 + u_7 = 0 \\
+        u_1 - u_3 - u_4 + u_8 = 0 \\
+        u_1 + u_2 - u_9 = 0
+    \end{cases}
+    \Longrightarrow
+    \begin{cases}
+        u_6 = -u_1 - u_2 + u_3 + u_4 + u_5 \\
+        u_7 = -u_1 + u_3 \\
+        u_8 = -u_1 + u_3 + u_4 \\
+        u_9 = u_1 + u_2
+    \end{cases}
+    \Longrightarrow
+    u_6, u_7, u_8, u_9 - \text{базис} \\
+\end{align*}
+
+Составим матрицу инцидентности
+\begin{equation*}
+    \begin{split}
+        B =
+        \begin{pmatrix}
+            -1 &&  0 && -1 &&  0 &&  0 &&  0 &&  0 &&  0 &&  0 \\
+             1 && -1 &&  0 &&  0 &&  0 &&  0 && -1 && -1 &&  0 \\
+             0 &&  0 &&  1 && -1 &&  0 &&  0 &&  1 &&  0 && -1 \\
+             0 &&  1 &&  0 &&  0 &&  0 && -1 &&  0 &&  0 &&  1 \\
+             0 &&  0 &&  0 &&  1 && -1 &&  0 &&  0 &&  1 &&  0 \\
+             0 &&  0 &&  0 &&  0 &&  1 &&  1 &&  0 &&  0 &&  0
+        \end{pmatrix}
+        \sim \\ \sim
+        \begin{pmatrix}
+            1 && 0 && 0 && 0 && 0 && -1 && -1 && -1 && 0 \\
+            0 && 1 && 0 && 0 && 0 && -1 &&  0 &&  0 && 0 \\
+            0 && 0 && 1 && 0 && 0 &&  1 &&  1 &&  1 && 0 \\
+            0 && 0 && 0 && 1 && 0 &&  1 &&  0 &&  1 && 0 \\
+            0 && 0 && 0 && 0 && 1 &&  1 &&  0 &&  0 && 0 \\
+            0 && 0 && 0 && 0 && 0 &&  0 &&  0 &&  0 && 1
+        \end{pmatrix}
+    \end{split}
+\end{equation*}
+
+По закону Кирхгофа для тока:
+\begin{align*}
+    B \times I = 0 = 
+    \begin{pmatrix}
+        1 && 0 && 0 && 0 && 0 && -1 && -1 && -1 && 0 \\
+        0 && 1 && 0 && 0 && 0 && -1 &&  0 &&  0 && 0 \\
+        0 && 0 && 1 && 0 && 0 &&  1 &&  1 &&  1 && 0 \\
+        0 && 0 && 0 && 1 && 0 &&  1 &&  0 &&  1 && 0 \\
+        0 && 0 && 0 && 0 && 1 &&  1 &&  0 &&  0 && 0 \\
+        0 && 0 && 0 && 0 && 0 &&  0 &&  0 &&  0 && 1
+    \end{pmatrix}
+    \times
+    \begin{pmatrix}
+        i_1 \\ \dots \\ i_9
+    \end{pmatrix}
+    \Longrightarrow \\ \Longrightarrow
+    \begin{cases}
+        i_1 = i_6 + i_7 + i_8 \\
+        i_2 = i_6 \\
+        i_3 = -i_6 - i_7 - i_8 \\
+        i_4 = -i_6 - i_8 \\
+        i_5 = -i_6 \\
+        i_9 = 0
+    \end{cases}
+    \Longrightarrow
+    \begin{cases}
+        i_1 = i_6 + i_7 + i_8 \\
+        i_2 = i_6 \\
+        i_3 = -i_6 - i_7 - i_8 \\
+        i_4 = -i_6 - i_8 \\
+        i_5 = -i_6 \\
+        i_9 = 0 \\
+        u_6 = -u_1 - u_2 + u_3 + u_4 + u_5 \\
+        u_7 = -u_1 + u_3 \\
+        u_8 = -u_1 + u_3 + u_4 \\
+        u_9 = u_1 + u_2
+    \end{cases}
+    \Longrightarrow \\ \Longrightarrow
+    \begin{cases}
+        i_1 = i_6 + i_7 + i_8 \\
+        i_2 = i_6 \\
+        i_3 = -i_6 - i_7 - i_8 \\
+        i_4 = -i_6 - i_8 \\
+        i_5 = -i_6 \\
+        i_9 = 0 \\
+        i_6r_6 = -e_1 - i_2r_2 + i_3r_3 + i_4r_4 + e_5 \\
+        i_7r_7 = -e_1 + i_3r_3 \\
+        i_8r_8 = -e_1 + i_3r_3 + i_4r_4 \\
+        i_9r_9 = e_1 + i_2r_2
+    \end{cases}
+    \Longrightarrow
+    \begin{cases}
+        i_1 = i_6 + i_7 + i_8 \\
+        i_2 = i_6 \\
+        i_3 = -i_6 - i_7 - i_8 \\
+        i_4 = -i_6 - i_8 \\
+        i_5 = -i_6 \\
+        i_9 = 0 \\
+        i_6r_6 = i_3r_3 + i_4r_4 + e_5 \\
+        i_7r_7 = -e_1 + i_3r_3 \\
+        i_8r_8 = -e_1 + i_3r_3 + i_4r_4 \\
+        e_1 = -i_2r_2
+    \end{cases}
+\end{align*}
+
+
+\section*{Ответ}
+\begin{equation*}
+    \begin{cases}
+        i_1 = i_6 + i_7 + i_8 \\
+        i_2 = i_6 \\
+        i_3 = -i_6 - i_7 - i_8 \\
+        i_4 = -i_6 - i_8 \\
+        i_5 = -i_6 \\
+        i_9 = 0 \\
+        i_6r_6 = i_3r_3 + i_4r_4 + e_5 \\
+        i_7r_7 = -e_1 + i_3r_3 \\
+        i_8r_8 = -e_1 + i_3r_3 + i_4r_4 \\
+        e_1 = -i_2r_2
+    \end{cases}
+\end{equation*}
+
+\end{document}
